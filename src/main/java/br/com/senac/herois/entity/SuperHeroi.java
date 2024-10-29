@@ -2,14 +2,43 @@ package br.com.senac.herois.entity;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "heroi")
 public class SuperHeroi {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column
     private String nome;
+
+    @Column
     private String apelido;
+
+    @Column
     private String superPoder;
+
+    @Column
     private String fraqueza;
+
+    @Column
     private String historiaOrigem;
+
+    @Column
     private Date primeiraAparicao;
+
+    @OneToOne
+    @JoinColumn(name = "equipe_id", referencedColumnName = "id")
+    private Equipe equipe;
 
     public String exibeDados() {
         return getId() + ", " + getNome() + ", " + getApelido() + ", " + 
@@ -17,59 +46,67 @@ public class SuperHeroi {
                getHistoriaOrigem() + ", " + getPrimeAparicao();
     }
     //-----------------------------------------
-    public void getId() {
+    public int getId() {
         return this.id;
     }
 
-    public int setId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
     //-----------------------------------------
-    public void getNome() {
+    public String getNome() {
         return this.nome;
     }
 
-    public String setNome(String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
     //-----------------------------------------
-    public void getApelido() {
+    public String getApelido() {
         return this.apelido;
     }
 
-    public String setApelido(String apelido) {
-        this.apelido = apelido
+    public void setApelido(String apelido) {
+        this.apelido = apelido;
     }
     //-----------------------------------------
-    public void getSuperPoder() {
+    public String getSuperPoder() {
         return this.superPoder;
     }
 
-    public String setSuperPoder(String superPoder) {
+    public void setSuperPoder(String superPoder) {
         this.superPoder = superPoder;
     }
     //-----------------------------------------
-    public void getFraqueza() {
+    public String getFraqueza() {
         return this.fraqueza;
     }
 
-    public String setFraqueza(String fraqueza) {
+    public void setFraqueza(String fraqueza) {
         this.fraqueza = fraqueza;
     }
     //-----------------------------------------
-    public void getHistoriaOrigem() {
+    public String getHistoriaOrigem() {
         return this.historiaOrigem;
     }
 
-    public String setHistoriaOrigem(String historiaOrigem) {
+    public void setHistoriaOrigem(String historiaOrigem) {
         this.historiaOrigem = historiaOrigem;
     }
     //-----------------------------------------
-    public void getPrimeAparicao() {
+    public Date getPrimeAparicao() {
         return this.primeiraAparicao;
     }
 
-    public Date setPrimeAparicao() {
+    public void setPrimeAparicao(Date primeiraAparicao) {
         this.primeiraAparicao = primeiraAparicao;
+    }
+    //-----------------------------------------
+    public Equipe getEquipe() {
+        return this.equipe;
+    }
+
+    public void setEquipe(Equipe equipe) {
+        this.equipe = equipe;
     }
 }
