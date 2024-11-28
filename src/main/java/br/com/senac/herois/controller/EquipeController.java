@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.senac.herois.entity.Equipe;
-import br.com.senac.herois.entity.SuperHeroi;
 import br.com.senac.herois.repository.EquipeRepository;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
